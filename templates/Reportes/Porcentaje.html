@@ -1,0 +1,31 @@
+{% extends "Reports.html" %}
+{% load static %}
+
+{% block reporte %}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header" data-background-color="blue">
+            <h4 class="title">Porcentaje de Ventas Por Mes Segun Genero</h4>
+        </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <th>Mes</th>
+                        <th>Porcentaje Masculino</th>
+                        <th>Porcentaje Femenino</th>
+                        <tbody>
+                                {% for dato in datos %}
+                            <tr>
+                                
+                                <td>{{ dato.MONTHS }}</td>
+                                <td>{{ dato.MASCULINO }}%</td>
+                                <td>{{ dato.FEMENINO }}%</td>                                 
+                            </tr>
+                                {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>    
+    </div>
+{% endblock %}

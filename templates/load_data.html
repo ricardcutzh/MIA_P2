@@ -1,0 +1,54 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Carga de Datos
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Carga de Datos
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Realiza la carga de Datos</h4>
+                    <p class="category">Selecciona un Archivo CSV para Cargar Datos</p>
+                </div>
+                <div class="card-content">
+                    <form action="{% url 'uploadDB' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="form-group label-floating">
+                                    <label class="control-label">Usuario: {{ request.session.usuario}}</label>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <!--<div class="form-group label-floating">
+                                    <label class="control-label">Seleccionar un Archivo CSV</label>
+                                    <input type="file" class="form-control">
+                                </div>-->
+                                <input name="archivo" type="file" class="">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-succes pull-right">Cargar Archivo Al Sistema</button>
+                        <p>
+                        {% if exitoso == True %}
+                        <a href="{% url 'loadDataDB' %}" class="btn btn-succes" >Cargar Hacia Base de Datos</a>
+                        {% endif %}
+                        </p>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

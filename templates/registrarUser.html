@@ -1,0 +1,112 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Registro de Usuario
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Registro de Usuario
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header" data-background-color="blue">
+                <h4 class="title">Registrar un Nuevo Usuario</h4>
+                <p class="category">Llene los campos necesarios</p>
+            </div>
+            <div class="card-content">
+                <form action="{% url 'regUserDB' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% if error == False %}
+                        <div class="alert alert-danger" role="alert">
+                                ERROR: Verifique DPI Valido 
+                        </div>
+                        {% elif error ==  True %}
+                        <div class="alert alert-succes" role="alert">
+                            Usuario Registrado Correctamente!
+                        </div>
+                        {% endif%}
+                        <div class="col-md-3">
+                            <div class="form-group label-floating">
+                                <label class="control-label">DPI</label>
+                                <input required name="dpi" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group label-floating">
+                                <label class="control-label">NIT</label>
+                                <input required name="nit" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Primer Nombre</label>
+                                <input required name="pnombre" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Segundo Nombre</label>
+                                <input name="snombre" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Primer Apellido</label>
+                                <input required name="papellido" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">Segundo Apellido</label>
+                                <input required name="sapellido" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group label-floating">
+                                <select name="ecivil" class="form-control">
+                                    <option class="form-control" value="Casado">Casado</option>
+                                    <option class="form-control" value="Soltero">Soltero</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group label-floating">
+                                <select name="gen" class="form-control">
+                                    <option class="form-control" value="F">Femenino</option>
+                                    <option class="form-control" value="M">Masculino</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group label-floating">
+                                <select name="tipo" class="form-control">
+                                    <option class="form-control" value="Administrador">Administrador</option>
+                                    <option class="form-control" value="Regular">Regular</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="{% url 'dashDB' %}" class="btn btn-warning pull-left">Editar Permisos de Usuario</a>
+                    <button type="submit" class="btn btn-succes pull-right">Registrar</button>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

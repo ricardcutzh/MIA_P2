@@ -1,0 +1,55 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Reportes Administrativos
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Reportes Administrativos
+{% endblock %}
+
+{% block content %}
+<div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="blue">
+                    <h4 class="title">Reportes Administrativos</h4>
+                    <p class="category"></p>
+                </div>
+                <div class="card-content">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="{% url 'rep1DB' %}" class="btn btn-default">Personas con Mas Dinero Gastado</a>
+                        </div>
+                        <div class="col-md-4">
+                                <a href="{% url 'rep2DB' %}" class="btn btn-default">Personas con Mas Productos</a>
+                        </div>
+                        <div class="col-md-4">
+                                <a href="{% url 'rep3DB' %}" class="btn btn-default">Productos Vendidos A Solteros</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <a href="{% url 'rep4DB' %}" class="btn btn-default">Cantidad de Facturas Al Mes</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{% url 'rep5DB' %}" class="btn btn-default">Porcentaje de Ventas Por Genero</a>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{% url 'rep6dirDB' %}" class="btn btn-default">Listado de Compras por DPI</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        {% block reporte %}
+        {% endblock %}
+    </div>
+{% endblock %}

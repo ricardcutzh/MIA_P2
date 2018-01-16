@@ -1,0 +1,88 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Usuarios
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="blue">
+                <h3 class="title">Agregar Administrador:</h3>
+            </div>
+            <div class="card-content">
+                <form action="{% url 'addAdminDB' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        {% if res == False %}
+                        <div class="alert alert-danger" role="alert">
+                            ERROR: No existe el Usuario Indicado 
+                        </div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">DPI de Usuario a Agregar</label>
+                                <input required name="dpi" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn bt-default">Agregar A Administradores</button>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{% url 'regUserDB' %}" class="btn btn-warning">Registrar un Nuevo Usuario</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+                <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Administradores del Sistema</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>DPI</th>
+                                <th>Primer Nombre</th>
+                                <th>Segundo Nombre</th>
+                                <th>Primer Apellido</th>
+                                <th>Segundo Apellido Apellido</th>
+                                <th>Acciones</th>
+                                {% if sellers is not None%}
+                                <tbody>
+                                    {% for seller in sellers%}
+                                    <tr>
+                                    <td>{{ seller.DPIV }}</td>
+                                    <td>{{ seller.PNOMBRE }}</td>
+                                    <td>{{ seller.SNOMBRE }}</td>
+                                    <td>{{ seller.PAPELLIDO }}</td>
+                                    <td>{{ seller.SAPELLIDO }}</td>
+                                    <td> <a href="/DeBaja/{{seller.DPIV}}" class="btn btn-default"> Quitar de Administracion </a></td>
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                        {% endif %}
+                    </thead>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

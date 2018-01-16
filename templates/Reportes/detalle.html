@@ -1,0 +1,49 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Detalle
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Detalle
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+                <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Detalle de Factura</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Nombre de Producto</th>
+                                <th>Talla</th>
+                                <th>Color</th>
+                                <th>Cantidad de Producto</th>
+                                <th>Precio</th>
+                            <tbody>
+                                    {% for dato in datos%}
+                                    <tr>
+                                    <td>{{ dato.NOMBRE }}</td>
+                                    <td>{{ dato.TALL }}</td>
+                                    <td>{{ dato.COL }}</td>
+                                    <td>{{ dato.CANT }}</td>
+                                    <td>Q{{ dato.PRICE }}</td>
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

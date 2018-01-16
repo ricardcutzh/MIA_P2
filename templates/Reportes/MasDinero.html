@@ -1,0 +1,34 @@
+{% extends "Reports.html" %}
+{% load static %}
+
+{% block reporte %}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header" data-background-color="blue">
+            <h4 class="title">10 Personas Con Mas Dinero Gastado</h4>
+        </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <th>DPI</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Dinero Gastado</th>
+                        <tbody>
+                                {% for dato in datos %}
+                            <tr>
+                                
+                                <td>{{ dato.DPI }}</td>
+                                <td>{{ dato.NOMBRE }}</td>
+                                <td>{{ dato.APELLIDO }}</td>
+                                <td>Q {{ dato.GASTADO }}</td>
+                                
+                            </tr>
+                                {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>    
+    </div>
+{% endblock %}

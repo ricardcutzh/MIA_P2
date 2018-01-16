@@ -1,0 +1,107 @@
+
+SQL*Loader: Release 11.2.0.2.0 - Production on Wed Jan 3 15:50:55 2018
+
+Copyright (c) 1982, 2009, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   /home/richard/Documents/Universidad/Vacas_Diciembre_2017/Proyecto2/[MIA]Proyecto2_201503476/[MIA]Proyecto2_201503476/Chamas/media/carga.ctl
+Character Set WE8ISO8859P1 specified for all input.
+
+Data File:      /home/richard/Documents/Universidad/Vacas_Diciembre_2017/Proyecto2/[MIA]Proyecto2_201503476/[MIA]Proyecto2_201503476/Chamas/media/[MIA]PROYECTO2.csv
+  Bad File:     /home/richard/Documents/Universidad/Vacas_Diciembre_2017/Proyecto2/[MIA]Proyecto2_201503476/[MIA]Proyecto2_201503476/Chamas/media/[MIA]PROYECTO2.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 1
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table MASTERT, loaded from every logical record.
+Insert option in effect for this table: TRUNCATE
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+DPIC                                FIRST     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:DPIC)"
+PNOMBREC                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:PNOMBREC)"
+SNOMBREC                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:SNOMBREC)"
+PAPELLIDOC                           NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:PAPELLIDOC)"
+SAPELLIDOC                           NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:SAPELLIDOC)"
+NITC                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:NITC)"
+ECIVILC                              NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:ECIVILC)"
+GENC                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:GENC)"
+SUCURSAL                             NEXT     *   ,  O(") CHARACTER            
+DIRSUCURSAL                          NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:DIRSUCURSAL)"
+TELSUCURSAL                          NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:TELSUCURSAL)"
+DEPARTAMENTO                         NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:DEPARTAMENTO)"
+MUNICIPIO                            NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:MUNICIPIO)"
+DPIV                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:DPIV)"
+PNOMBREV                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:PNOMBREV)"
+SNOMBREV                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:SNOMBREV)"
+PAPELLIDOV                           NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:PAPELLIDOV)"
+SAPELLIDOV                           NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:SAPELLIDOV)"
+NITV                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:NITV)"
+ECIVILV                              NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:ECIVILV)"
+GENV                                 NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:GENV)"
+FACTURA                              NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:FACTURA)"
+SERIE                                NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:SERIE)"
+FECHAFAC                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TO_DATE(:FECHAFAC, 'DD/MM/YYYY', 'NLS_DATE_LANGUAGE=ENGLISH')"
+CANTIDAD                             NEXT     *   ,  O(") CHARACTER            
+COLOR                                NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:COLOR)"
+TALLA                                NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:TALLA)"
+NOMBRE_P                             NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:NOMBRE_P)"
+PRECIO_P                             NEXT     *   ,  O(") CHARACTER            
+CATEGORIA                            NEXT     *   ,  O(") CHARACTER            
+    SQL string for column : "TRIM(:CATEGORIA)"
+
+value used for ROWS parameter changed from 64 to 33
+
+Table MASTERT:
+  43963 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 255420 bytes(33 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          1
+Total logical records read:         43963
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Wed Jan 03 15:50:55 2018
+Run ended on Wed Jan 03 15:51:12 2018
+
+Elapsed time was:     00:00:17.21
+CPU time was:         00:00:01.81

@@ -1,0 +1,77 @@
+{% extends "layouts/adminlayou.html" %}
+{% load static %}
+
+{% block titulo%}
+Usuarios
+{% endblock %}
+
+{% block usuario%}
+Usuario: {{request.session.usuario}}
+{% endblock %}
+
+{% block head%}
+Dashboard
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header" data-background-color="blue">
+                <h3 class="title">Agregar Administrador:</h3>
+            </div>
+            <div class="card-content">
+                <form action="{% url 'rep6DB' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group label-floating">
+                                <label class="control-label">DPI de Usuario a Buscar</label>
+                                <input required name="dpi" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn bt-default">Ver Compras de Usuario</button>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{% url 'reportDB' %}" class="btn btn-warning">Ir A Reportes</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+                <div class="card-header" data-background-color="blue">
+                        <h4 class="title">Compras de Usuario:</h4>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <th>Numero de Factura</th>
+                                <th>Serie</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Detalle</th>
+                            <tbody>
+                                    {% for dato in datos%}
+                                    <tr>
+                                    <td>{{ dato.FAC }}</td>
+                                    <td>{{ dato.SER }}</td>
+                                    <td>{{ dato.FECH }}</td>
+                                    <td>Q{{ dato.TOT }}</td>
+                                    <td> <a href="/Detalle/{{dato.FAC}}" class="btn btn-default"> Ver Productos </a></td>
+                                    </tr>
+                                    {% endfor %}
+                            </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

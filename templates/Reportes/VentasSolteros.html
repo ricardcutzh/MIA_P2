@@ -1,0 +1,31 @@
+{% extends "Reports.html" %}
+{% load static %}
+
+{% block reporte %}
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header" data-background-color="blue">
+            <h4 class="title">Productos con mayor numero de Ventas por Quincena A Solteros</h4>
+        </div>
+            <div class="card-content table-responsive">
+                <table class="table">
+                    <thead class="text-primary">
+                        <th>Codigo Producto</th>
+                        <th>Nombre de Producto</th>
+                        <th>Numero de Ventas</th>
+                        <tbody>
+                                {% for dato in datos %}
+                            <tr>
+                                
+                                <td>{{ dato.IDP }}</td>
+                                <td>{{ dato.PRODUCTO }}</td>
+                                <td>{{ dato.NUV }}</td>                                
+                            </tr>
+                                {% endfor %}
+                        </tbody>
+                    </thead>
+                </table>
+            </div>
+        </div>    
+    </div>
+{% endblock %}
